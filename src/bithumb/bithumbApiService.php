@@ -8,23 +8,19 @@ use Validator;
 use Response;
 use Auth;
 
-class XCoinAPI {// extends \App\Http\Controllers\Controller
-
+class BithumbApiService {// extends \App\Http\Controllers\Controller
 	protected $api_url = "https://api.bithumb.com";
 
 	protected $api_key;
 	protected $api_secret;
-/*
+
 	public function __construct($api_key, $api_secret) {
 		$this->api_key = $api_key;
 		$this->api_secret = $api_secret;
 
 	}
-    */
-    public function setInfo($api_key, $api_secret){
-        $this->api_key = $api_key;
-        $this->api_secret = $api_secret;
-    }
+
+
 	
 	private function usecTime() 
 	{
@@ -117,6 +113,9 @@ class XCoinAPI {// extends \App\Http\Controllers\Controller
 		return $rgResultDecode;
 
 	}
+    
+    
+    
 
 }//end class XCoinAPI 
 ?>
