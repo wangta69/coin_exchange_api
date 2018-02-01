@@ -117,5 +117,4 @@ class BithumbApiService {// extends \App\Http\Controllers\Controller
     
     
 
-}//end class XCoinAPI 
-?>
+}//end class BithumbApiService 

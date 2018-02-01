@@ -11,6 +11,6 @@
 |
 */
 Route::group(['prefix' => 'api/coin-exchange', 'as' => 'api.coin-exchange.', 'namespace' => 'Pondol\CoinExchange', 'middleware' => ['api']], function () {
-    Route::get('call', 'CoinExchangeController@callApi')->name('call');
-    Route::post('call', 'CoinExchangeController@callApi')->name('call');
+    Route::get('call/{exchanger}', 'CoinExchangeController@callApi')->name('call');//for test .. use post for security
+    Route::post('call/{exchanger}', 'CoinExchangeController@callApi')->name('call');
 });
