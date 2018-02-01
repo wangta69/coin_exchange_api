@@ -30,8 +30,7 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
     private function bithumb(Request $request, $result){
         $api_url    = $request->api_url;//'user_transactions';
         
-        echo "aaaa";
-        echo $api_url;
+
         switch($api_url){
             case "/info/user_transactions":
                 return $this->bithumb_user_transactions($request, $result);
@@ -41,7 +40,8 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
     
     private function bithumb_user_transactions(Request $request, $result){
         
-        return view('coinexchange::transactions', []);
+        print_r($result->data);
+        return view('coinexchange::transactions', ['data'=>$result->data]);
         
     }
 }
