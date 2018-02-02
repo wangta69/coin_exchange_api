@@ -5,14 +5,26 @@ use Illuminate\Http\Request;
 use Pondol\CoinExchange\BithumbApiService;
 use Pondol\CoinExchange\CoinoneApiService;
 
+
+/**
+참조 API
+(KR) coinone api : https://doc.coinone.co.kr/
+(KR) bithumb api : https://www.bithumb.com/u1/US127
+(KR) korbit api : https://apidocs.korbit.co.kr/ 
+(KR) upbit : 공식 api가 존재 하지 않음  : https://steemit.com/kr/@segyepark/api
+https://crix-api-endpoint.upbit.com/v1/crix/trades/ticks?code=CRIX.UPBIT.KRW-ETH&count=1
+(CHI) huobipro : https://github.com/huobiapi/API_Docs_en/wiki/REST_Reference (24시간 전가격 없음)
+(JP) coincheck https://coincheck.com/api/rate/all (24시간 전가격 없음)
+ */
+
 class CoinExchangeService{
         
     public static function callBithumbApi(Request $request){
         
-        $api_url   = $request->api_url;//'user_transactions';
-        $api_key   = $request->key;//'user_transactions';
-        $api_secret   = $request->secret;//'user_transactions';
-        $reqParams   = $request->reqParams;
+        $api_url    = $request->api_url;//'user_transactions';
+        $api_key    = $request->key;//'user_transactions';
+        $api_secret = $request->secret;//'user_transactions';
+        $reqParams  = $request->reqParams;
 
         $api = new BithumbApiService($api_key, $api_secret);
 
@@ -24,14 +36,10 @@ class CoinExchangeService{
     
     public static function callCoinoneApi(Request $request){
 
-        $api_url    = $request->api_url;//'user_transactions';
-        $access_token    = $request->key;//'user_transactions';
-        $secret_key   = $request->secret;//'user_transactions';
-        $reqParams   = $request->reqParams;
-        
-        $api_url    = "/transaction/history/";
-        $access_token    = "5231d28d-4fa7-4c90-980a-afa8c3eaf3e9";
-        $secret_key    = "152b3892-78c8-4d8a-ac82-e2f6f1e44ff9";
+        $api_url        = $request->api_url;//'user_transactions';
+        $access_token   = $request->key;//'user_transactions';
+        $secret_key     = $request->secret;//'user_transactions';
+        $reqParams      = $request->reqParams;
         
         $api = new CoinoneApiService($access_token, $secret_key);
 

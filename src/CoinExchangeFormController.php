@@ -22,13 +22,63 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
         
         switch($exchanger){
             case "bithumb":
-                $result = CoinExchangeService::callBithumbApi($request);//회원거래내역(실제 거래가 이루어진 것)
+                $result = CoinExchangeService::callBithumbApi($request);
                 return $this->bithumb($request, $result);
+                break;
+            case "coinone":
+                $result = CoinExchangeService::callCoinoneApi($request);
+                return $this->coinone($request, $result);
                 break;
         }
        
     }
     
+    
+    //COINONE START
+    private function coinone (Request $request, $result){
+        $api_url    = $request->api_url;//'user_transactions';
+        
+        echo $api_url;
+        switch($api_url){
+            case "/account/user_info/"://회원 정보
+                return $this->coinone_account($request, $result);
+                break;
+            case "/transaction/history/"://회원거래내역
+                return $this->coinone_user_transactions($request, $result);
+                break;
+            default:
+                return Response::json($result, 200);
+                break;
+        }
+    }
+    
+     /**
+     * COINONE /info/account 회원 정보
+     */
+    private function coinone_account(Request $request, $result){
+        print_r($result->userInfo);
+       // return view('coinexchange::account', ['item'=>$result->userInfo, 'request'=>$request]);
+        
+    }
+    
+    /**
+     * COINONE /info/user_transactions 회원거래내역
+     */
+    private function coinone_user_transactions(Request $request, $result){
+        
+        foreach ($result->data as $index => $item){
+            
+            $item->search_str = $this->code['bithumb']['search'][$item->search];
+            $item->krw_currency = $this->ch_currency_to_krw($item, $request->reqParams['currency']);
+            $item->currency_remain = $this->ch_currency_remain($item, $request->reqParams['currency']);
+        }
+        return view('coinexchange::transactions', ['data'=>$result->data, 'request'=>$request]);
+        
+    }
+    
+    //COINONE END
+    
+    //BITHUMB START
     private function bithumb(Request $request, $result){
         $api_url    = $request->api_url;//'user_transactions';
         
@@ -51,7 +101,7 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
     
         
     /**
-     * BTC /info/account 회원 정보
+     * BITHUMB /info/account 회원 정보
      */
     private function bithumb_account(Request $request, $result){
         return view('coinexchange::account', ['item'=>$result->data, 'request'=>$request]);
@@ -59,7 +109,7 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
     }
     
     /**
-     * BTC /info/user_transactions 회원거래내역
+     * BITHUMB /info/user_transactions 회원거래내역
      */
     private function bithumb_user_transactions(Request $request, $result){
         
@@ -103,6 +153,8 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
             case 'QTUM':return $item->qtum_remain;break;//퀀텀
         }
     }
+    
+    //BITHUMB END
 }
     
     

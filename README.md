@@ -14,18 +14,20 @@ Pondol\CoinExchange\CoinExchangeServiceProvider::class,
 ```
 
 javascript Sample
-- 빗썸 API : 참조 URL :  https://www.bithumb.com/u1/US127
+- 빗썸 API : 참조 URL :  https://www.bithumb.com/u1/US127 <br />
+- 코인원 API : 참조 URL :  https://doc.coinone.co.kr (use api V2 version)<br />
 ```
-var exchanger = 'bithumb';
+
 var api_url = '/info/user_transactions';
 var connect_key = "xxxxxx";
 var secret_key = "xxxxxxxx";
 var reqParams = {currency : 'XRP', searchGb : '0'};
 
+//[EXCHANGER] : coinone, bithumb
 $(function() {
     
     var callApi = function(){
-        $.post("/api/coin-exchange/call", {exchanger:exchanger, api_url:api_url, key:connect_key, secret:secret_key, reqParams:reqParams}, function(data){
+        $.post("/api/coin-exchange/call/[EXCHANGER]", {api_url:api_url, key:connect_key, secret:secret_key, reqParams:reqParams}, function(data){
            console.log(data); 
         });
     }
