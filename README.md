@@ -89,13 +89,14 @@ $result = $api->publicApi('GET', $uri);
 ```
 
 
-### [ COINNET ] 
+### [ COINNEST ] 
 - COINNET API DOCUMENT : https://www.coinnest.co.kr/doc/intro.html<br />
 
 #### Public 
 ```
 use Pondol\CoinExchange\CoinnestApiService;
-
+----
+$uri = '/api/pub/ticker?coin=btc';
 $api = new CoinnestApiService();
 $result = $api->publicApi('GET', $uri);
 ```
@@ -140,4 +141,16 @@ use Pondol\CoinExchange\CoincheckApiService;;
 $api = new CoincheckApiService();
 $result = $api->publicApi('GET', $uri);
 ```
+
+### [ HUOBIPRO ] 
+- COINRAIL API DOCUMENT : https://github.com/huobiapi/API_Docs_en/wiki/REST_Reference <br />
+
+#### Public 
+```
+use Pondol\CoinExchange\HuobiproApiService;;
+
+$api = new HuobiproApiService();
+$result = $api->publicApi('GET', $uri);
+```
+
 
