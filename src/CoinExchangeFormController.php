@@ -37,8 +37,6 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
     //COINONE START
     private function coinone (Request $request, $result){
         $api_url    = $request->api_url;//'user_transactions';
-        
-        echo $api_url;
         switch($api_url){
             case "/account/user_info/"://회원 정보
                 return $this->coinone_account($request, $result);
@@ -56,8 +54,7 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
      * COINONE /info/account 회원 정보
      */
     private function coinone_account(Request $request, $result){
-        print_r($result->userInfo);
-       // return view('coinexchange::account', ['item'=>$result->userInfo, 'request'=>$request]);
+        return view('coinexchange::account', ['item'=>$result->userInfo, 'request'=>$request, 'exchanger'=>'coinone']);
         
     }
     
@@ -104,7 +101,7 @@ class CoinExchangeFormController extends \App\Http\Controllers\Controller {
      * BITHUMB /info/account 회원 정보
      */
     private function bithumb_account(Request $request, $result){
-        return view('coinexchange::account', ['item'=>$result->data, 'request'=>$request]);
+        return view('coinexchange::account', ['item'=>$result->data, 'request'=>$request, 'exchanger'=>'bithumb']);
         
     }
     

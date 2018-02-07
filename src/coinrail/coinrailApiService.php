@@ -4,9 +4,9 @@ namespace Pondol\CoinExchange;
 use Pondol\Curl\CurlService;
 use Pondol\CoinExchange\CoinExchangeMethod;
 
-class CoinoneApiService {
-	protected $api_host = "https://api.coinone.co.kr";
-    protected $api_host_v2 = "https://api.coinone.co.kr/v2";
+class CoinrailApiService {
+	protected $api_host = "https://api.coinrail.co.kr";
+
 	protected $access_token;
 	protected $secret_key;
 
@@ -41,7 +41,7 @@ class CoinoneApiService {
      */
 	public function privateApiCall($uri, $params=null) {
 		
-		$api_url		= $this->api_host_v2 . $uri;
+		$api_url		= $this->api_host . $uri;
 
         $params = ["access_token"=> $this->access_token,  "currency"=> "btc",  "nonce"=> CoinExchangeMethod::usecTime() ];
         
