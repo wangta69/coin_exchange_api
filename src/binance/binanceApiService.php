@@ -7,8 +7,10 @@ class BinanceApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://api.binance.com";
 
 
-
-	public function __construct() {}
+    
+	public function __construct() {
+	    $this->curl = new CurlService();
+	}
 
     /**
      * public Api Call
@@ -21,10 +23,43 @@ class BinanceApiService {// extends \App\Http\Controllers\Controller
     public function publicApi($method, $endpoint, $params=[]){
         
         $api_url = $this->api_host.$endpoint;
-        $curl = new CurlService();
-        $curl->request($method, $api_url, $params);//
-        return json_decode($curl->body());
+       // $curl = new CurlService();
+       // $curl->request($method, $api_url, $params);//
+        $this->curl->request($method, $api_url, $params);//
+        return json_decode($this->curl->body());
     }
+    
+        // return 
+
+    public function get_response(){
+        return $this->curl->get_response();
+    }
+    
+    public function info(){
+        return $this->curl->info();
+    }
+    
+     public function http_code(){
+        return $this->curl->http_code();
+    }
+    
+    public function header_size(){
+        return $this->curl->header_size();
+    }
+    
+    public function header(){
+        return $this->curl->header();
+    }
+    
+    public function body(){
+        return $this->curl->body();
+    }
+    
+    public function err_message(){
+        return $this->curl->err_message();
+    }
+
+    
     
     //USDT market
     //simbol : BTCUSDT 

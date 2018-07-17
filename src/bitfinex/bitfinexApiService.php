@@ -16,7 +16,7 @@ class BitfinexApiService {// extends \App\Http\Controllers\Controller
      * @param $endpoint String "/uri"
      * @param $params Array ['body', 'headers']
      * @return Json Object 
-     * /api/v1/ticker/24hr return all basic on BTC
+     * `${url}/tickers?symbols=tBTCUSD,tLTCUSD,fUSD`,
      */
     public function publicApi($method, $endpoint, $params=[]){
         
@@ -26,8 +26,13 @@ class BitfinexApiService {// extends \App\Http\Controllers\Controller
         return json_decode($curl->body());
     }
     
-    //USDT market
-    //simbol : BTCUSDT 
-    //BTC, ETH, BNB, NEO, LTC, BCC, QTUM
-    //simbol : TRXBTC 
+    
+    public function get_symbols(){
+        $method = 'GET';
+        $params = null;
+        $api_url = 'https://api.bitfinex.com/v1/symbols';
+        $curl = new CurlService();
+        $curl->request($method, $api_url, $params);//
+        return json_decode($curl->body());
+    }
 }//end class BithumbApiService 
