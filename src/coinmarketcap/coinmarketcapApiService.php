@@ -30,7 +30,6 @@ class CoinmarketcapApiService {// extends \App\Http\Controllers\Controller
           'X-CMC_PRO_API_KEY: '. $this->apikey
       ];
 
-      echo 'api_url:'.$api_url.PHP_EOL;
         $curl->request($method, $api_url, $params);//
         return json_decode($curl->body());
     }
@@ -50,8 +49,4 @@ class CoinmarketcapApiService {// extends \App\Http\Controllers\Controller
         $curl->request('GET', $api_url);//
         return json_decode($curl->body());
     }
-
-
-
-
 }//end class BithumbApiService
