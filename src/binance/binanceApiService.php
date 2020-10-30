@@ -1,13 +1,13 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 //limit requests to no more than 10 per minute.
 class BinanceApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://api.binance.com";
 
 
-    
+
 	public function __construct() {
 	    $this->curl = new CurlService();
 	}
@@ -17,52 +17,52 @@ class BinanceApiService {// extends \App\Http\Controllers\Controller
      * @param $method String POST/GET/DELETE...
      * @param $endpoint String "/uri"
      * @param $params Array ['body', 'headers']
-     * @return Json Object 
+     * @return Json Object
      * /api/v1/ticker/24hr return all basic on BTC
      */
     public function publicApi($method, $endpoint, $params=[]){
-        
+
         $api_url = $this->api_host.$endpoint;
        // $curl = new CurlService();
        // $curl->request($method, $api_url, $params);//
         $this->curl->request($method, $api_url, $params);//
         return json_decode($this->curl->body());
     }
-    
-        // return 
+
+        // return
 
     public function get_response(){
         return $this->curl->get_response();
     }
-    
+
     public function info(){
         return $this->curl->info();
     }
-    
+
      public function http_code(){
         return $this->curl->http_code();
     }
-    
+
     public function header_size(){
         return $this->curl->header_size();
     }
-    
+
     public function header(){
         return $this->curl->header();
     }
-    
+
     public function body(){
         return $this->curl->body();
     }
-    
+
     public function err_message(){
         return $this->curl->err_message();
     }
 
-    
-    
+
+
     //USDT market
-    //simbol : BTCUSDT 
+    //simbol : BTCUSDT
     //BTC, ETH, BNB, NEO, LTC, BCC, QTUM
-    //simbol : TRXBTC 
-}//end class BithumbApiService 
+    //simbol : TRXBTC
+}//end class BithumbApiService

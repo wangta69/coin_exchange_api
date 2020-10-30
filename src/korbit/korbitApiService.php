@@ -1,7 +1,7 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 
 class KorbitApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host_v1 = "https://api.korbit.co.kr/v1";
@@ -17,7 +17,7 @@ class KorbitApiService {// extends \App\Http\Controllers\Controller
      * @param $method String POST/GET/DELETE...
      * @param $uri String "/uri"
      * @param $params Array ['body', 'headers']
-     * @return Json Object 
+     * @return Json Object
      */
     public function publicApi($method, $uri, $params=[]){
         $api_url = $this->api_host_v1.$uri;
@@ -27,4 +27,4 @@ class KorbitApiService {// extends \App\Http\Controllers\Controller
     }
 
 
-}//end class BithumbApiService 
+}//end class BithumbApiService

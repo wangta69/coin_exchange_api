@@ -1,9 +1,9 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 use Illuminate\Http\Request;
 
-use Pondol\CoinExchange\BithumbApiService;
-use Pondol\CoinExchange\CoinoneApiService;
+use Wangta69\CoinExchange\BithumbApiService;
+use Wangta69\CoinExchange\CoinoneApiService;
 
 
 /**

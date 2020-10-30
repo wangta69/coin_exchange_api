@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Pondol\\CoinExchange\\": "src/"
+            "Wangta69\\CoinExchange\\": "src/"
         }
     }
 }

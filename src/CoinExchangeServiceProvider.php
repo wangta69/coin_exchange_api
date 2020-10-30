@@ -1,5 +1,5 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
 //use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +15,7 @@ class CoinExchangeServiceProvider extends ServiceProvider {
      * @var string
      */
    // public $routeFilePath = '/routes/bbs/base.php';
-    
+
 	/**
      * Register any application services.
      *
@@ -42,8 +42,8 @@ class CoinExchangeServiceProvider extends ServiceProvider {
             require_once __DIR__ . '/Https/routes/api.php';
             require_once __DIR__ . '/Https/routes/web.php';
         }
-         
-         
+
+
          // - loadViews  : 상기와 다른 점음  resources/views/bbs 에 없을 경우 아래 것에서 처리한다. for user modify
          // return view('coinexchange::transactions', []); 처럼 사용하면 된다.
          $this->loadViewsFrom(__DIR__.'/resources/views', 'coinexchange');

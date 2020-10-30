@@ -1,7 +1,7 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 
 class CoincheckApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://coincheck.com/api";
@@ -17,7 +17,7 @@ class CoincheckApiService {// extends \App\Http\Controllers\Controller
      * @param $method String POST/GET/DELETE...
      * @param $uri String "/uri"
      * @param $params Array ['body', 'headers']
-     * @return Json Object 
+     * @return Json Object
      */
     public function publicApi($method, $uri, $params=[]){
         $api_url = $this->api_host.$uri;
@@ -27,4 +27,4 @@ class CoincheckApiService {// extends \App\Http\Controllers\Controller
     }
 
 
-}//end class BithumbApiService 
+}//end class BithumbApiService

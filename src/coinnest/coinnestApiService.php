@@ -1,7 +1,7 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 
 class CoinnestApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://api.coinnest.co.kr";
@@ -20,7 +20,7 @@ class CoinnestApiService {// extends \App\Http\Controllers\Controller
      * @param $method String POST/GET/DELETE...
      * @param $uri String "/uri"
      * @param $params Array ['body', 'headers']
-     * @return Json Object 
+     * @return Json Object
      */
     public function publicApi($method, $uri, $params=[]){
         $api_url = $this->api_host.$uri;
@@ -28,18 +28,18 @@ class CoinnestApiService {// extends \App\Http\Controllers\Controller
         $curl->request($method, $api_url, $params);//
         return json_decode($curl->body());
     }
-    
-    
+
+
     /**
      * @param String $uri :  Api Detail Url except First
      * @param Array $params : params for Request
-     * @return JsonObject 
+     * @return JsonObject
      */
     public function privateApiCall($uri, $params=null) {
-        
+
         $api_url        = $this->api_host . $uri;
         $httpHeaders    = $this->_getHttpHeaders($uri, $rgParams, $this->pubkey, $this->prikey);
-        
+
         $curl = new CurlService();
         $curl->request('POST', $api_url, ['body'=>$this->wrapParam($params)]);//
 
@@ -48,7 +48,7 @@ class CoinnestApiService {// extends \App\Http\Controllers\Controller
 
     /**
      * Wrap Request Parmas
-     */ 
+     */
     private function wrapParam($data=array()){
         # Public Key
         $data['key'] = $this->pubkey;
@@ -59,16 +59,16 @@ class CoinnestApiService {// extends \App\Http\Controllers\Controller
         $data['signature'] = $signature;
         return $data;
     }
-    
-    
+
+
     /**
      * Generate Signature
-     */ 
+     */
     private function makeSignature($data,$priKey){
         return hash_hmac('sha256', http_build_query($data), md5($priKey));
     }
-    
-    
-    
 
-}//end class BithumbApiService 
+
+
+
+}//end class BithumbApiService

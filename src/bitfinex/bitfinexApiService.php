@@ -1,7 +1,7 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 //limit requests to no more than 10 per minute.
 class BitfinexApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://api.bitfinex.com/v2";
@@ -15,18 +15,18 @@ class BitfinexApiService {// extends \App\Http\Controllers\Controller
      * @param $method String POST/GET/DELETE...
      * @param $endpoint String "/uri"
      * @param $params Array ['body', 'headers']
-     * @return Json Object 
+     * @return Json Object
      * `${url}/tickers?symbols=tBTCUSD,tLTCUSD,fUSD`,
      */
     public function publicApi($method, $endpoint, $params=[]){
-        
+
         $api_url = $this->api_host.$endpoint;
         $curl = new CurlService();
         $curl->request($method, $api_url, $params);//
         return json_decode($curl->body());
     }
-    
-    
+
+
     public function get_symbols(){
         $method = 'GET';
         $params = null;
@@ -35,4 +35,4 @@ class BitfinexApiService {// extends \App\Http\Controllers\Controller
         $curl->request($method, $api_url, $params);//
         return json_decode($curl->body());
     }
-}//end class BithumbApiService 
+}//end class BithumbApiService

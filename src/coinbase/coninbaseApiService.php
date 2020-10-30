@@ -1,7 +1,7 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
-use Pondol\Curl\CurlService;
+use Wangta69\Curl\CurlService;
 //limit requests to no more than 10 per minute.
 class CoinBaseApiService {// extends \App\Http\Controllers\Controller
 	protected $api_host = "https://api.coinbase.com/v2";

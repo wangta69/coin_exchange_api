@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => 'coin-exchange', 'as' => 'coin-exchange.', 'namespace' => 'Pondol\CoinExchange'], function () {//, 'middleware' => ['web']
+Route::group(['prefix' => 'coin-exchange', 'as' => 'coin-exchange.', 'namespace' => 'Wangta69\CoinExchange'], function () {//, 'middleware' => ['web']
     Route::get('form/call/{exchanger}', 'CoinExchangeFormController@callApi')->name('form.call');//for test .. use post for security
     Route::post('form/call/{exchanger}', 'CoinExchangeFormController@callApi')->name('form.call');
 });

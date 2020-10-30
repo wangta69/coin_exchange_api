@@ -1,16 +1,16 @@
 <?php
-namespace Pondol\CoinExchange;
+namespace Wangta69\CoinExchange;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use Response;
 
-//use Pondol\CoinExchange\BithumbApiService;
-use Pondol\CoinExchange\CoinExchangeService;
+//use Wangta69\CoinExchange\BithumbApiService;
+use Wangta69\CoinExchange\CoinExchangeService;
 
 class CoinExchangeController extends \App\Http\Controllers\Controller {
-        
+
     //public function callBithumbApi(Request $request){
     public function callApi(Request $request, $exchanger){
         switch($exchanger){
@@ -23,7 +23,6 @@ class CoinExchangeController extends \App\Http\Controllers\Controller {
                 return Response::json($result, 200);
                 break;
         }
-        
+
     }
 }
-    
