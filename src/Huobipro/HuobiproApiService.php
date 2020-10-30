@@ -1,5 +1,5 @@
 <?php
-namespace Wangta69\CoinExchange;
+namespace Wangta69\CoinExchange\Huobipro;
 
 use Wangta69\Curl\CurlService;
 

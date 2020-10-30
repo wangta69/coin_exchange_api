@@ -2,8 +2,8 @@
 namespace Wangta69\CoinExchange;
 use Illuminate\Http\Request;
 
-use Wangta69\CoinExchange\BithumbApiService;
-use Wangta69\CoinExchange\CoinoneApiService;
+use Wangta69\CoinExchange\Bithumb\BithumbApiService;
+use Wangta69\CoinExchange\Coinone\CoinoneApiService;
 
 
 /**

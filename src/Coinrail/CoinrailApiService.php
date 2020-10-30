@@ -1,5 +1,5 @@
 <?php
-namespace Wangta69\CoinExchange;
+namespace Wangta69\CoinExchange\Coinrail;
 
 use Wangta69\Curl\CurlService;
 use Wangta69\CoinExchange\CoinExchangeMethod;

@@ -1,5 +1,5 @@
 <?php
-namespace Wangta69\CoinExchange;
+namespace Wangta69\CoinExchange\Binance;
 
 use Wangta69\Curl\CurlService;
 //limit requests to no more than 10 per minute.
