@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0",
-        "wangta69/curl": "^1.0"
+        "wangta69/curl": "~1.0.3"
     },
     "autoload": {
         "psr-4": {
